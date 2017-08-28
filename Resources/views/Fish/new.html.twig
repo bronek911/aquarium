@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <form action="{{ path('waterzoo_fish_addfish') }}" method="POST">
+
+        <input type="text" name="name"><br>
+        <button type="submit" class="btn btn-info btn-fill btn-wd">Zapisz</button>
+
+    </form>
+
+{% endblock body %}

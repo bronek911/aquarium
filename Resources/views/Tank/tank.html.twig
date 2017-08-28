@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <div class="container-flex">
+
+        <div class="row">
+            <div class="header">
+                <div class="col-sm-8 header-left text-center">
+                    <div class="addTankButton">
+                        Add another tank
+                    </div>
+                </div>
+                <div class="col-sm-4 header-right">
+                    <a href="{{ path('waterzoo_fish_returnallfishes') }}">Fishes</a><br>
+                    <a href="{{ path('waterzoo_decoration_returnalldecoration') }}">Decorations</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="container-flex room-container">
+
+                {% for tank in tanks %}
+
+                    <div class="tank" data-id="{{ tank.id }}">
+                        id: {{ tank.id }}<br>
+
+                        {% if tank.name != false %}
+                            name: {{ tank.name }}<br>
+                        {% else %}
+                            <br>
+                        {% endif %}
+
+                        cap: {{ tank.capacity }}<br>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

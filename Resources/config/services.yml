@@ -1,0 +1,4 @@
+services:
+#    water_zoo.example:
+#        class: waterZooBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

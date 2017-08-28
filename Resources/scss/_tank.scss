@@ -1,0 +1,46 @@
+.tank-header {
+  height: 150px;
+  width: 100%;
+  background: rgba(0,0,0,0.05);
+  .text {
+    padding-top: 25px;
+  }
+  .buttons {
+    text-align: right;
+    height: 100%;
+    padding-top: 25px;
+    padding-right: 40px;
+    border-left: 1px solid black;
+  }
+}
+.tank-container {
+  padding-top: 50px;
+  .singleTank {
+    width: 60vw;
+    height: 60vh;
+    border: 3px solid black;
+    border-top: 0px;
+    margin: 0 auto;
+    .row {
+      height:33%;
+      width: 100%;
+      background: #fff;
+      margin: 0;
+      padding: 30px 30px;
+      display: inline-flex;
+      .tank-item {
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        padding-top: 15px;
+      }
+      .tank-item:hover {
+        background: rgba(0,0,0,0.2);
+        text-decoration: none;
+      }
+    }
+    .row:hover {
+      background: rgba(0,0,0,0.05);
+    }
+  }
+}

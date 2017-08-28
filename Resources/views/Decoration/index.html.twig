@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <div class="container-flex">
+
+        <div class="row">
+            <div class="header">
+                <div class="col-sm-8 header-left"></div>
+                <div class="col-sm-4 header-right">
+                    <a href="{{ path('waterzoo_tank_returnalltanks') }}">Get back to the room</a><br>
+                    <a href="{{ path('waterzoo_decoration_adddecoration') }}">Add new decoration</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="container-flex room-container">
+
+                <table>
+                    {% for decoration in decorations %}
+                        <tr>
+                            <td>
+                                Id: {{ decoration.id }}, Name: <a
+                                        href="{{ path('waterzoo_decoration_show', {'id': decoration.id}) }}">{{ decoration.name }}</a><br>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container-flex">
+        <div class="row">
+            <div class="header">
+                <div class="col-sm-4 header-left text-center">
+                    Tank number: {{ tank.id }}<br>
+                    Name: {{ tank.name }}
+                </div>
+                <div class="col-sm-4 header-center">
+                    Items:<br><br>
+
+                    {% for types, objects in items %}
+                        {% for item in objects %}
+                           {{ types }} - {{ item.name }},
+                        {% endfor %}
+                    {% endfor %}
+
+                </div>
+                <div class="col-sm-4 header-right buttons">
+                    <a href="{{ path('waterzoo_tank_returnalltanks') }}">Get back to the room</a><br>
+                    <a href="{{ path('waterzoo_tank_show', {'id': tank.id}) }}">Get back to tank</a><br>
+                    Add new item
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container-flex tank-container text-center">
+
+                <h2>Add item</h2>
+                <form action="{{ path('waterzoo_tank_additemtotank', {'id': tank.id} ) }}" method="POST">
+
+
+                    <select name="addingItem">
+                        {% for typeKey, type in avaItems %}
+                            {% for key, item in type %}
+                                <option value="{{ typeKey }}_{{ item.id }}">{{ typeKey }} - {{ item.id }}
+                                    - {{ item.name }}</option>
+                            {% endfor %}
+                        {% endfor %}
+                    </select>
+                    <br><br>
+                    <button type="submit" class="btn btn-info btn-fill btn-wd">Zapisz</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

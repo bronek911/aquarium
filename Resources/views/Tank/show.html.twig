@@ -1,0 +1,78 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <div class="container-flex">
+        <div class="row">
+            <div class="header">
+                <div class="col-sm-8 header-left text-center">
+                    ID: {{ tank.id }} <br>
+                    Name: {{ tank.name }} <br>
+                    Capacity: {{ tank.capacity }} <br>
+                </div>
+                <div class="col-sm-4 header-right">
+                    <a href="{{ path('waterzoo_tank_returnalltanks') }}">Get back to the room</a><br>
+                    <a href="{{ path('waterzoo_tank_additemtotank', {'id': tank.id}) }}">Add new item</a><br>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container-flex tank-container">
+
+                <div class="singleTank">
+
+
+                    <div class="row">
+
+                        {% for item in items["Fish"] %}
+
+                            <a href="{{ path('waterzoo_fish_show', {'id': item.id}) }}">
+                                <div class="tank-item fish">
+                                    {{ item.id }} - {{ item.name }}
+                                </div>
+                            </a>
+
+                        {% endfor %}
+
+
+                    </div>
+                    <div class="row">
+
+
+                        {% for item in items["Decoration"] %}
+
+
+                            <a href="{{ path('waterzoo_decoration_show', {'id': item.id}) }}">
+                                <div class="tank-item decoration">
+                                    {{ item.id }} - {{ item.name }}
+                                </div>
+                            </a>
+
+                        {% endfor %}
+
+                    </div>
+                    <div class="row">
+
+
+                        {% for item in items["Tank"] %}
+
+                            <a href="{{ path('waterzoo_tank_show', {'id': item.id}) }}">
+                                <div class="tank-item tank">
+                                    {{ item.id }} - {{ item.name }}
+                                </div>
+                            </a>
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock body %}

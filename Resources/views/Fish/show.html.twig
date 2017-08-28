@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <div class="container-flex">
+
+        <div class="row">
+            <div class="header">
+                <div class="col-sm-4 header-left text-center">
+                    ID: {{ fish.id }}<br>
+                    Name: {{ fish.name }}<br>
+                    Parent id: {{ fish.parentId }}<br>
+                </div>
+                <div class="col-sm-4 header-center">
+                    {% if fish.parentId != null %}
+                        <a href="{{ path('waterzoo_fish_removefromtank', {'id': fish.id}) }}">Remove from tank</a>
+                    {% else %}
+                        <a href="{{ path('waterzoo_fish_addtotank', {'id': fish.id}) }}">Add to tank</a>
+                    {% endif %}
+                </div>
+                <div class="col-sm-4 header-right">
+                    <a href="{{ path('waterzoo_tank_returnalltanks') }}">Get back to the room</a><br>
+                    <a href="{{ path('waterzoo_fish_returnallfishes') }}">Get back to fishes</a><br>
+                    {% if fish.parentId != null %}
+                        <a href="{{ path('waterzoo_tank_show', {'id': fish.parentId}) }}">Get back to tank</a><br>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="container-flex room-container">
+
+
+                {#<form action="{{ path('waterzoo_decoration_adddecoration') }}" method="POST">#}
+
+                {#<input type="text" name="name"><br>#}
+                {#<button type="submit" class="btn btn-info btn-fill btn-wd">Zapisz</button>#}
+
+                {#</form>#}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
